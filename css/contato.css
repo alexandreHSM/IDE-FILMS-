@@ -1,0 +1,115 @@
+/* ═══════════════════════════════════════════════════════════
+   CONTATO.CSS — Seção de Contato / Formulário
+   IDE FILMS
+═══════════════════════════════════════════════════════════ */
+
+#contato {
+  padding: var(--spacing-xl) var(--spacing-lg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  background: var(--black);
+  border-top: 1px solid rgba(221, 185, 94, .08);
+}
+
+/* ─── INFO ──────────────────────────────────────────────── */
+.contato-text {
+  font-size: .82rem;
+  line-height: 2;
+  color: rgba(204, 204, 204, .65);
+  max-width: 380px;
+  margin-bottom: 3rem;
+}
+
+.contato-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.contato-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contato-item-icon {
+  width: 38px; height: 38px;
+  border: 1px solid rgba(221, 185, 94, .25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.contato-item-text strong {
+  display: block;
+  font-size: .7rem;
+  font-weight: 500;
+  color: var(--white);
+  letter-spacing: .05em;
+}
+
+.contato-item-text span {
+  font-size: .65rem;
+  color: rgba(204, 204, 204, .5);
+}
+
+/* ─── FORMULÁRIO ────────────────────────────────────────── */
+.form-row { margin-bottom: 1.2rem; }
+
+.form-row label {
+  display: block;
+  font-size: .6rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(204, 204, 204, .4);
+  margin-bottom: .5rem;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, .03);
+  border: 1px solid rgba(221, 185, 94, .15);
+  color: var(--snow);
+  padding: .85rem 1rem;
+  font-family: var(--ff-body);
+  font-size: .78rem;
+  outline: none;
+  transition: border-color .3s;
+  -webkit-appearance: none;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus { border-color: var(--gold); }
+
+.form-row select option { background: #111; }
+
+.form-row textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* btn-gold no formulário ocupa 100% */
+.contato-form .btn-gold {
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+/* ─── RESPONSIVE ────────────────────────────────────────── */
+@media (max-width: 900px) {
+  #contato     { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 2rem; }
+  .form-grid   { grid-template-columns: 1fr; }
+}

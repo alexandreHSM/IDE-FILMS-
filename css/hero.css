@@ -1,0 +1,240 @@
+/* ═══════════════════════════════════════════════════════════
+   HERO.CSS — Seção hero com imagem animada
+   IDE FILMS
+═══════════════════════════════════════════════════════════ */
+
+#hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ─── GRAIN OVERLAY ─────────────────────────────────────── */
+#hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: .4;
+}
+
+/* ─── RADIAL GLOW ───────────────────────────────────────── */
+#hero::after {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(218, 173, 58, 0.219) 0%, transparent 70%);
+  top: 10%; left: 5%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ─── LEFT COLUMN — texto ───────────────────────────────── */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 30%;
+  padding: 6rem 4rem 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  font-size: .65rem;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero-title {
+  font-family: var(--ff-display);
+  font-size: clamp(3.5rem, 6vw, 6rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: .05em;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.hero-title em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+.hero-sub {
+  font-size: .8rem;
+  line-height: 1.9;
+  color: var(--snow);
+  max-width: 360px;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero-tagline {
+  font-size: .65rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(204, 204, 204, .5);
+  margin-bottom: 2.5rem;
+  opacity: 0;
+}
+
+/* btn-gold no hero começa invisível */
+#hero-cta {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* ─── RIGHT COLUMN — imagem animada ────────────────────── */
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  padding: 4rem 3rem 4rem 1rem;
+}
+
+/* Wrapper que carrega as animações */
+.hero-mockup-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+
+  /* Estado inicial — invisível e deslocado */
+  opacity: 0;
+  transform: translateY(48px) scale(.96);
+}
+
+/* Imagem principal do mockup */
+.hero-mockup-img {
+  width: 150%;
+  height: auto;
+  display: block;
+
+  /* Sombra dourada suave */
+  filter:
+    drop-shadow(0 24px 60px rgba(0,0,0,.7))
+    drop-shadow(0 0 40px rgba(221,185,94,.08));
+
+  /* Float contínuo após a entrada */
+  animation: heroFloat 6s ease-in-out infinite;
+  animation-play-state: paused; /* pausa até JS ativar */
+}
+
+/* ─── ANIMAÇÃO DE ENTRADA (JS adiciona .is-visible) ─────── */
+.hero-mockup-wrap.is-visible {
+  animation: heroEntrance .9s var(--ease) forwards;
+}
+
+.hero-mockup-wrap.is-visible .hero-mockup-img {
+  animation-play-state: running;
+  animation-delay: .9s; /* começa a flutuar só após a entrada */
+}
+
+@keyframes heroEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(48px) scale(.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Float suave e contínuo */
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-14px); }
+}
+
+/* ─── GLOW atrás da imagem ──────────────────────────────── */
+.hero-mockup-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 10% 15%;
+  background: radial-gradient(ellipse, rgba(221,185,94,.12) 0%, transparent 70%);
+  filter: blur(40px);
+  z-index: -1;
+  border-radius: 50%;
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: .6; transform: scale(1); }
+  50%       { opacity: 1;  transform: scale(1.1); }
+}
+
+/* ─── SCROLL HINT ────────────────────────────────────────── */
+.scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.scroll-hint span {
+  font-size: .55rem;
+  letter-spacing: .2em;
+  color: rgba(204, 204, 204, .4);
+  text-transform: uppercase;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: .3; transform: scaleY(1); }
+  50%       { opacity: 1;  transform: scaleY(1.2); }
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  #hero {
+    grid-template-columns: 1fr;
+    min-height: 100svh;
+    padding-top: 70px;
+  }
+
+  /* Coluna de texto ocupa tela toda */
+  .hero-left {
+    padding: 4rem 2rem 3rem;
+    margin-left: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-sub  { max-width: 100%; }
+
+  /* Imagem oculta no mobile */
+  .hero-right {
+    display: none;
+  }
+
+  /* Scroll hint centralizado */
+  .scroll-hint { bottom: 1.5rem; }
+}
