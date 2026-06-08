@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   SERVICOS.CSS — Seção Serviços
+   SERVICOS.CSS — Seção Serviços (4 cards dourados)
    IDE FILMS
 ═══════════════════════════════════════════════════════════ */
 
@@ -11,11 +11,13 @@
 .servicos-header {
   text-align: center;
   margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(40px);
 }
 
 .servicos-header .divider { margin: 1.5rem auto; }
 
-/* ─── GRID DE CARDS ─────────────────────────────────────── */
+/* ─── GRID ──────────────────────────────────────────────── */
 .servicos-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -25,98 +27,65 @@
 /* ─── CARD ──────────────────────────────────────────────── */
 .servico-card {
   position: relative;
-  padding: 2.8rem 2.5rem;
+  padding: 2.4rem 2rem;
   border-radius: 20px;
   overflow: hidden;
   cursor: default;
-
-  /* Gradiente azul-escuro igual ao da referência */
-  background:
-    linear-gradient(
-      135deg,
-      #CCCCCC 0%,
-      #A07227 40%,
-      #DDB95E 100%
-    );
-
-  /* Borda sutil */
+  background: linear-gradient(135deg, var(--snow) 0%, var(--gold-dk) 40%, var(--gold) 100%);
   border: 1px solid rgba(255,255,255,.06);
-
-  /* Sombra profunda */
   box-shadow: 0 8px 40px rgba(0,0,0,.5);
-
   transition: transform .4s var(--ease), box-shadow .4s var(--ease);
-}
 
-/* Brilho interno no hover */
-.servico-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  background: radial-gradient(
-    ellipse at 20% 30%,
-    rgba(221,185,94,.07) 0%,
-    transparent 65%
-  );
+  /* GSAP: começa invisível */
   opacity: 0;
-  transition: opacity .4s;
+  transform: translateY(50px);
 }
 
-/* Linha dourada no hover (bottom) */
 .servico-card::after {
   content: '';
   position: absolute;
   bottom: 0; left: 10%; right: 10%;
   height: 1px;
-  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  background: linear-gradient(to right, transparent, rgba(255,255,255,.5), transparent);
   transform: scaleX(0);
   transition: transform .45s var(--ease);
 }
 
-.servico-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 60px rgba(0,0,0,.6);
-}
-
-.servico-card:hover::before  { opacity: 1; }
-.servico-card:hover::after   { transform: scaleX(1); }
+.servico-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,.6); }
+.servico-card:hover::after { transform: scaleX(1); }
 
 /* ─── ÍCONE ─────────────────────────────────────────────── */
 .servico-icon {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   display: block;
-  margin-bottom: 1.2rem;
-  line-height: 1;
+  margin-bottom: 1rem;
 }
 
 /* ─── TÍTULO ────────────────────────────────────────────── */
 .servico-name {
   font-family: var(--ff-display);
-  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  font-size: clamp(1.6rem, 2vw, 2.2rem);
   font-weight: 700;
   color: #fff;
   line-height: 1.1;
-  margin-bottom: 1rem;
-  letter-spacing: -.01em;
+  margin-bottom: .8rem;
 }
 
 /* ─── DESCRIÇÃO ─────────────────────────────────────────── */
 .servico-desc {
-  font-size: .78rem;
+  font-size: .74rem;
   line-height: 1.8;
-  color: rgba(220,230,255,.55);
-  margin-bottom: 1.8rem;
-  max-width: 380px;
+  color: rgba(12,12,12,.6);
+  margin-bottom: 1.5rem;
 }
 
-/* ─── LABEL SKILLS ──────────────────────────────────────── */
+/* ─── SKILLS LABEL ──────────────────────────────────────── */
 .servico-skills-label {
-  font-size: .6rem;
+  font-size: .58rem;
   letter-spacing: .15em;
   text-transform: uppercase;
-  color: rgba(220,230,255,.35);
-  margin-bottom: .8rem;
+  color: rgba(12,12,12,.45);
+  margin-bottom: .6rem;
   display: block;
 }
 
@@ -124,48 +93,38 @@
 .servico-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: .5rem;
+  gap: .4rem;
 }
 
 .servico-tag {
   display: inline-block;
-  padding: .35rem .9rem;
-  border: 1px solid rgba(255,255,255,.2);
+  padding: .28rem .8rem;
+  border: 1px solid rgba(12,12,12,.2);
   border-radius: 999px;
-  font-size: .65rem;
+  font-size: .62rem;
   font-weight: 500;
-  color: rgba(230,240,255,.8);
-  letter-spacing: .05em;
-  background: rgba(255,255,255,.04);
+  color: rgba(12,12,12,.7);
+  background: rgba(255,255,255,.15);
   transition: border-color .3s, background .3s, color .3s;
 }
 
 .servico-card:hover .servico-tag {
-  border-color: rgba(221,185,94,.4);
-  color: var(--gold);
-  background: rgba(221,185,94,.06);
+  border-color: rgba(12,12,12,.4);
+  background: rgba(255,255,255,.3);
 }
 
 /* ─── RESPONSIVE ────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .servicos-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 900px) {
-  #servicos        { padding: 5rem 1.5rem; }
-
-  /* 2 colunas × 2 linhas no mobile */
-  .servicos-grid   { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-
-  /* Cards menores: reduz padding e tipografia */
-  .servico-card    { padding: 1.8rem 1.4rem; border-radius: 14px; }
-
-  .servico-name    { font-size: clamp(1.3rem, 4vw, 1.7rem); }
-
-  .servico-desc    { font-size: .72rem; margin-bottom: 1.2rem; }
-
-  .servico-skills-label { font-size: .55rem; }
-
-  .servico-tag     { font-size: .58rem; padding: .28rem .7rem; }
+  #servicos { padding: 5rem 1.5rem; }
+  .servicos-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .servico-card  { padding: 1.8rem 1.4rem; border-radius: 14px; }
+  .servico-name  { font-size: clamp(1.3rem, 4vw, 1.7rem); }
 }
 
 @media (max-width: 480px) {
-  /* Telas muito pequenas — 1 coluna */
-  .servicos-grid   { grid-template-columns: 1fr; }
+  .servicos-grid { grid-template-columns: 1fr; }
 }

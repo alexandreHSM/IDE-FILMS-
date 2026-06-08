@@ -1,47 +1,166 @@
 /* ═══════════════════════════════════════════════════════════
-   GALERIA.CSS — Carrossel de portfólio
+   GALERIA.CSS — Portfólio com notebook YouTube + carrossel
    IDE FILMS
 ═══════════════════════════════════════════════════════════ */
 
 #galeria {
   padding: var(--spacing-xl) 0;
+  background: var(--black);
 }
 
 /* ─── HEADER ────────────────────────────────────────────── */
 .galeria-header {
   padding: 0 var(--spacing-lg);
-  margin-bottom: 3rem;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(40px);
 }
 
-/* ─── TABS DE FILTRO ────────────────────────────────────── */
-.galeria-tabs {
+/* ─── NOTEBOOK YOUTUBE ──────────────────────────────────── */
+.galeria-notebook-wrap {
+  padding: 0 var(--spacing-lg);
+  margin-bottom: 5rem;
   display: flex;
-  gap: 1.5rem;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(60px) scale(.97);
 }
 
-.tab-btn {
-  background: none;
+.notebook {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+}
+
+/* Corpo do notebook */
+.notebook-body {
+  background: linear-gradient(160deg, #2a2a2a 0%, #1a1a1a 100%);
+  border-radius: 16px 16px 0 0;
+  padding: 20px 24px 14px;
+  border: 1.5px solid #3a3a3a;
+  box-shadow:
+    0 0 0 1px #111,
+    0 30px 80px rgba(0,0,0,.8),
+    0 0 60px rgba(221,185,94,.05);
+  position: relative;
+}
+
+/* Câmera do notebook */
+.notebook-camera {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #333;
+  border: 1px solid #444;
+  margin: 0 auto 10px;
+}
+
+/* Tela */
+.notebook-screen {
+  background: #000;
+  border-radius: 6px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9.4;
+  position: relative;
+  border: 1.5px solid #111;
+}
+
+.notebook-screen iframe {
+  width: 100%; height: 100%;
+  display: block;
   border: none;
-  cursor: pointer;
-  font-family: var(--ff-body);
+}
+
+/* Barra inferior (base do notebook) */
+.notebook-base {
+  background: linear-gradient(to bottom, #252525, #1c1c1c);
+  height: 18px;
+  border-radius: 0 0 8px 8px;
+  border: 1.5px solid #333;
+  border-top: none;
+  position: relative;
+}
+
+/* Detalhe da dobradiça */
+.notebook-base::before {
+  content: '';
+  position: absolute;
+  top: 4px; left: 50%;
+  transform: translateX(-50%);
+  width: 60px; height: 4px;
+  border-radius: 2px;
+  background: #333;
+}
+
+/* Pé do notebook */
+.notebook-foot {
+  background: linear-gradient(to bottom, #1c1c1c, #141414);
+  height: 10px;
+  border-radius: 0 0 20px 20px;
+  border: 1.5px solid #2a2a2a;
+  border-top: none;
+  width: 94%;
+  margin: 0 auto;
+}
+
+/* Glow dourado atrás do notebook */
+.notebook::before {
+  content: '';
+  position: absolute;
+  inset: 10% 5%;
+  background: radial-gradient(ellipse, rgba(221,185,94,.07) 0%, transparent 70%);
+  filter: blur(40px);
+  z-index: -1;
+}
+
+/* ─── LEGENDA DO VÍDEO ──────────────────────────────────── */
+.galeria-video-caption {
+  text-align: center;
+  margin-top: 1.5rem;
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.galeria-video-caption strong {
+  display: block;
+  font-family: var(--ff-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: .3rem;
+}
+
+.galeria-video-caption span {
   font-size: .65rem;
   letter-spacing: .2em;
   text-transform: uppercase;
-  color: rgba(204, 204, 204, .4);
-  padding: .3rem 0;
-  border-bottom: 1px solid transparent;
-  transition: color .3s, border-color .3s;
-}
-
-.tab-btn.active {
   color: var(--gold);
-  border-color: var(--gold);
 }
 
-/* ─── SWIPER ────────────────────────────────────────────── */
+/* ─── DIVISOR ───────────────────────────────────────────── */
+.galeria-divider {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 var(--spacing-lg);
+  margin-bottom: 3rem;
+  opacity: 0;
+}
+
+.galeria-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(221,185,94,.2), transparent);
+}
+
+.galeria-divider-label {
+  font-size: .6rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: rgba(204,204,204,.35);
+  white-space: nowrap;
+}
+
+/* ─── CARROSSEL ─────────────────────────────────────────── */
 .swiper-galeria {
   padding: 0 var(--spacing-lg) 3rem !important;
   overflow: visible !important;
@@ -51,7 +170,7 @@
 
 /* ─── SLIDE ─────────────────────────────────────────────── */
 .galeria-slide {
-  border-radius: 4px;
+  border-radius: 8px;
   overflow: hidden;
   position: relative;
   aspect-ratio: 16 / 10;
@@ -59,16 +178,15 @@
   cursor: pointer;
 }
 
-.galeria-slide img,
-.galeria-slide video {
+.galeria-slide img {
   width: 100%; height: 100%;
   object-fit: cover;
   filter: brightness(.85);
   transition: transform .6s var(--ease), filter .6s;
+  display: block;
 }
 
-.galeria-slide:hover img,
-.galeria-slide:hover video {
+.galeria-slide:hover img {
   transform: scale(1.04);
   filter: brightness(1);
 }
@@ -77,11 +195,14 @@
 .galeria-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(12,12,12,.8) 0%, transparent 50%);
+  background: linear-gradient(to top, rgba(12,12,12,.85) 0%, transparent 55%);
   opacity: 0;
   transition: opacity .4s;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: .4rem;
   padding: 1.5rem;
 }
 
@@ -94,27 +215,20 @@
   color: var(--gold);
 }
 
-/* ─── PLAY ICON (vídeos) ────────────────────────────────── */
-.play-icon {
-  position: absolute;
-  inset: 0;
+.galeria-ig-hint {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: .4rem;
+  font-size: .6rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(204,204,204,.5);
+  transition: color .3s;
 }
 
-.play-icon svg {
-  width: 52px; height: 52px;
-  opacity: .7;
-  transition: opacity .3s, transform .3s;
-}
+.galeria-slide:hover .galeria-ig-hint { color: var(--snow); }
 
-.galeria-slide:hover .play-icon svg {
-  opacity: 1;
-  transform: scale(1.1);
-}
-
-/* ─── BOTÕES DE NAVEGAÇÃO ───────────────────────────────── */
+/* ─── NAV BUTTONS ───────────────────────────────────────── */
 .swiper-nav {
   display: flex;
   gap: 1rem;
@@ -124,7 +238,7 @@
 
 .swiper-btn {
   width: 44px; height: 44px;
-  border: 1px solid rgba(221, 185, 94, .3);
+  border: 1px solid rgba(221,185,94,.3);
   background: none;
   cursor: pointer;
   display: flex;
@@ -143,31 +257,135 @@
 /* ─── RESPONSIVE ────────────────────────────────────────── */
 @media (max-width: 900px) {
   .galeria-header,
+  .galeria-notebook-wrap,
+  .galeria-divider,
   .swiper-galeria,
-  .swiper-nav {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
+  .swiper-nav { padding-left: 1.5rem; padding-right: 1.5rem; }
 }
 
-/* ─── HINT "VER NO INSTAGRAM" ───────────────────────────── */
-.galeria-overlay {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: .5rem;
+/* ─── NOTEBOOK REDESIGN com tampa animada ───────────────── */
+
+/* Remove estilos antigos do notebook-body */
+.notebook-body { all: unset; display: block; }
+
+/* Tampa (lid) — rota de cima para baixo no open */
+.notebook-lid {
+  position: relative;
+  background: linear-gradient(160deg, #2e2e2e 0%, #1a1a1a 100%);
+  border-radius: 14px 14px 2px 2px;
+  padding: 16px 20px 12px;
+  border: 1.5px solid #3a3a3a;
+  border-bottom: none;
+  box-shadow: 0 -4px 20px rgba(0,0,0,.4);
+
+  /* Ponto de rotação: parte de baixo da tampa */
+  transform-origin: bottom center;
+
+  /* Estado inicial: fechado (90° = deitado, vemos só a borda) */
+  /* GSAP vai animar de rotateX(90deg) para rotateX(0deg)       */
+  transform: perspective(1200px) rotateX(90deg);
+  backface-visibility: hidden;
 }
 
-.galeria-ig-hint {
+/* Interior da tampa */
+.notebook-lid-inner {
+  position: relative;
+}
+
+/* Câmera */
+.notebook-camera {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #2a2a2a;
+  border: 1px solid #444;
+  margin: 0 auto 10px;
+}
+
+/* Tela */
+.notebook-screen {
+  background: #000;
+  border-radius: 6px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9.4;
+  position: relative;
+  border: 1.5px solid #111;
+}
+
+.notebook-screen iframe {
+  width: 100%; height: 100%;
+  display: block;
+  border: none;
+}
+
+/* Base do notebook (sempre visível) */
+.notebook-base-body {
+  background: linear-gradient(to bottom, #272727, #1e1e1e);
+  border-radius: 0 0 10px 10px;
+  border: 1.5px solid #333;
+  border-top: 1px solid #444;
+  padding: 14px 20px 10px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.7);
+}
+
+/* Teclado decorativo */
+.notebook-keyboard {
   display: flex;
-  align-items: center;
-  gap: .4rem;
-  font-size: .6rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: rgba(204,204,204,.5);
-  transition: color .3s;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
 }
 
-.galeria-slide:hover .galeria-ig-hint {
-  color: var(--snow);
+.notebook-key-row {
+  display: flex;
+  gap: 4px;
+}
+
+.notebook-key-row span {
+  flex: 1;
+  height: 8px;
+  background: #2a2a2a;
+  border-radius: 2px;
+  border: 1px solid #333;
+}
+
+.notebook-key-row--space { justify-content: center; }
+
+.notebook-space {
+  flex: 0 0 40% !important;
+  height: 8px;
+  background: #2a2a2a;
+  border-radius: 2px;
+  border: 1px solid #333;
+}
+
+/* Trackpad */
+.notebook-trackpad {
+  width: 30%;
+  height: 28px;
+  background: #252525;
+  border-radius: 6px;
+  border: 1px solid #333;
+  margin: 0 auto;
+}
+
+/* Pé */
+.notebook-foot {
+  background: linear-gradient(to bottom, #1c1c1c, #141414);
+  height: 10px;
+  border-radius: 0 0 20px 20px;
+  border: 1.5px solid #2a2a2a;
+  border-top: none;
+  width: 94%;
+  margin: 0 auto;
+}
+
+/* Glow dourado atrás */
+.notebook::before {
+  content: '';
+  position: absolute;
+  inset: 5% 5%;
+  background: radial-gradient(ellipse, rgba(221,185,94,.09) 0%, transparent 70%);
+  filter: blur(50px);
+  z-index: -1;
+  pointer-events: none;
 }
