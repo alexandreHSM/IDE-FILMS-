@@ -3,17 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="IDE FILMS — Produções Cinematográficas. Documentários, Eventos e Casamentos." />
+  <meta name="description" content="IDE FILMS — Produções Cinematográficas. Documentários, Eventos e Casamentos."/>
   <title>IDE FILMS</title>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Libs CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
-  <!-- Componentes CSS -->
   <link rel="stylesheet" href="css/base.css"/>
   <link rel="stylesheet" href="css/nav.css"/>
   <link rel="stylesheet" href="css/hero.css"/>
@@ -37,16 +34,14 @@
       </svg>
       <span>IDE FILMS</span>
     </div>
-
     <ul class="nav-links">
       <li><a href="#sobre">Sobre Nós</a></li>
       <li><a href="#servicos">Serviços</a></li>
       <li><a href="#galeria">Galeria</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
-
     <div class="nav-ig">
-      <a href="https://instagram.com/idefilms" target="_blank">Instagram</a>
+      <a href="https://instagram.com/idefilmss" target="_blank">Instagram</a>
     </div>
   </nav>
 
@@ -62,99 +57,73 @@
       <p class="hero-tagline" id="hero-tagline">Documentários · Eventos · Casamentos</p>
       <a href="#contato" class="btn-gold" id="hero-cta">Solicitar Orçamento</a>
     </div>
-
     <div class="hero-right">
       <div class="hero-mockup-wrap">
-        <!--
-          Substitua o src abaixo pelo caminho da sua imagem:
-          src="assets/MOCKUP CELL.png"
-        -->
-        <img
-          class="hero-mockup-img"
-          src="assets/MOCKUP CELL.png"
-          alt="IDE FILMS — mockup Instagram"
-        />
+        <img class="hero-mockup-img" src="assets/MOCKUP CELL.png" alt="IDE FILMS — mockup Instagram"/>
       </div>
     </div>
-
-    <!--<div class="scroll-hint" id="scroll-hint">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>-->
   </section>
 
-  <!-- ══ SOBRE ═════════════════════════════════════════════ -->
-  <div class="sobre-envelope-wrap">
-
-    <!-- Flábula do envelope -->
-    <div class="envelope-flap"></div>
-
-    <!-- Bordas decorativas do envelope -->
-    <div class="envelope-border-left"></div>
-    <div class="envelope-border-right"></div>
-    <div class="envelope-border-bottom"></div>
-
+  <!-- ══ SOBRE — sticky slide-over-hero ══════════════════════ -->
+  <!-- O wrapper tem altura extra para o scroll acontecer      -->
+  <div class="sobre-sticky-wrap">
   <section id="sobre">
-    <div class="sobre-visual reveal">
-      <div class="sobre-visual-bg"></div>
-      <div class="sobre-img-grid">
-        <div class="sobre-img-item">
-          <img src="assets/neto.png" alt="Fotógrafo IDE FILMS">
-        </div>
-        <div class="sobre-img-item">
-          <img src="assets/foto 2.png" alt="Evento IDE FILMS">
-        </div>
-        <div class="sobre-img-item">
-          <img src="assets/foto 3.png" alt="Evento IDE FILMS">
+    <div class="sobre-card">
+      <div class="sobre-visual">
+        <div class="sobre-img-grid">
+          <div class="sobre-img-item">
+            <img src="assets/neto.png" alt="Equipe IDE FILMS">
+          </div>
+          <div class="sobre-img-item">
+            <img src="assets/foto 2.png" alt="Evento IDE FILMS">
+          </div>
+          <div class="sobre-img-item">
+            <img src="assets/foto 3.png" alt="Evento IDE FILMS">
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="sobre-content">
-      <p class="section-label reveal">Nossa História</p>
-      <h2 class="section-title reveal reveal-delay-1">Cada evento,<br><em>uma obra.</em></h2>
-      <div class="divider reveal reveal-delay-2"></div>
-      <p class="sobre-text reveal reveal-delay-2">
-        A IDE FILMS nasceu da paixão por contar histórias através de imagens. Atuamos em eventos
-        sociais e corporativos com um olhar refinado e técnica cinematográfica, entregando produções
-        que emocionam e representam com fidelidade cada momento único.
-      </p>
-      <div class="sobre-stats reveal reveal-delay-3">
-        <div class="stat-item">
-          <div class="stat-num">200<span style="color:var(--gold-dk)">+</span></div>
-          <div class="stat-label">Eventos</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">5<span style="color:var(--gold-dk)">★</span></div>
-          <div class="stat-label">Avaliação</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">7<span style="color:var(--gold-dk)">+</span></div>
-          <div class="stat-label">Anos</div>
+      <div class="sobre-content">
+        <p class="section-label">Nossa História</p>
+        <h2 class="section-title">Cada evento,<br><em>uma obra.</em></h2>
+        <div class="divider"></div>
+        <p class="sobre-text">
+          A IDE FILMS nasceu da paixão por contar histórias através de imagens. Atuamos em eventos
+          sociais e corporativos com um olhar refinado e técnica cinematográfica, entregando produções
+          que emocionam e representam com fidelidade cada momento único.
+        </p>
+        <div class="sobre-stats">
+          <div class="stat-item">
+            <div class="stat-num">200<span style="color:var(--gold-dk)">+</span></div>
+            <div class="stat-label">Eventos</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">5<span style="color:var(--gold-dk)">★</span></div>
+            <div class="stat-label">Avaliação</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">7<span style="color:var(--gold-dk)">+</span></div>
+            <div class="stat-label">Anos</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
-  </div><!-- /sobre-envelope-wrap -->
+  </div><!-- /sobre-sticky-wrap -->
 
   <!-- ══ SERVIÇOS ══════════════════════════════════════════ -->
   <section id="servicos">
-    <div class="servicos-header reveal">
+    <div class="servicos-header">
       <p class="section-label">O que fazemos</p>
       <h2 class="section-title">Nossos <em>Serviços</em></h2>
       <div class="divider"></div>
     </div>
 
     <div class="servicos-grid">
-
-      <!-- Card 1 — Filmagem -->
-      <div class="servico-card reveal">
+      <div class="servico-card">
         <span class="servico-icon">🎬</span>
         <h3 class="servico-name">Filmagem<br>de Eventos</h3>
-        <p class="servico-desc">
-          Cobertura completa com câmeras profissionais, estabilizadores e
-          edição cinematográfica de alto nível.
-        </p>
+        <p class="servico-desc">Cobertura completa com câmeras profissionais, estabilizadores e edição cinematográfica de alto nível.</p>
         <span class="servico-skills-label">Equipamentos & Técnicas</span>
         <div class="servico-tags">
           <span class="servico-tag">Cinema 4K</span>
@@ -165,14 +134,10 @@
         </div>
       </div>
 
-      <!-- Card 2 — Fotografia -->
-      <div class="servico-card reveal reveal-delay-1">
+      <div class="servico-card">
         <span class="servico-icon">📷</span>
         <h3 class="servico-name">Fotografia</h3>
-        <p class="servico-desc">
-          Registros com qualidade técnica e sensibilidade artística —
-          cada clique conta uma história.
-        </p>
+        <p class="servico-desc">Registros com qualidade técnica e sensibilidade artística — cada clique conta uma história.</p>
         <span class="servico-skills-label">Estilos & Entrega</span>
         <div class="servico-tags">
           <span class="servico-tag">Fotojornalismo</span>
@@ -183,14 +148,10 @@
         </div>
       </div>
 
-      <!-- Card 3 — Casamentos -->
-      <div class="servico-card reveal reveal-delay-2">
+      <div class="servico-card">
         <span class="servico-icon">💍</span>
         <h3 class="servico-name">Casamentos</h3>
-        <p class="servico-desc">
-          Narrativa emocional do seu dia especial,
-          do making of à festa completa.
-        </p>
+        <p class="servico-desc">Narrativa emocional do seu dia especial, do making of à festa completa.</p>
         <span class="servico-skills-label">Coberturas</span>
         <div class="servico-tags">
           <span class="servico-tag">Making Of</span>
@@ -201,14 +162,10 @@
         </div>
       </div>
 
-      <!-- Card 4 — Corporativo -->
-      <div class="servico-card reveal reveal-delay-3">
+      <div class="servico-card">
         <span class="servico-icon">🏢</span>
         <h3 class="servico-name">Corporativo</h3>
-        <p class="servico-desc">
-          Convenções, palestras, lançamentos e eventos institucionais
-          com acabamento profissional.
-        </p>
+        <p class="servico-desc">Convenções, palestras, lançamentos e eventos institucionais com acabamento profissional.</p>
         <span class="servico-skills-label">Formatos & Entregas</span>
         <div class="servico-tags">
           <span class="servico-tag">Transmissão ao Vivo</span>
@@ -218,39 +175,82 @@
           <span class="servico-tag">Entrega Rápida</span>
         </div>
       </div>
-
     </div>
   </section>
 
   <!-- ══ GALERIA ═══════════════════════════════════════════ -->
   <section id="galeria">
-    <div class="galeria-header reveal">
-      <div>
-        <p class="section-label">Portfólio</p>
-        <h2 class="section-title">Nossa <em>Galeria</em></h2>
-      </div>
-      <!--
-      <div class="galeria-tabs">
-        <button class="tab-btn active" data-filter="all">Todos</button>
-        <button class="tab-btn" data-filter="social">Social</button>
-        <button class="tab-btn" data-filter="corporativo">Corporativo</button>
-        <button class="tab-btn" data-filter="video">Vídeos</button>
-      </div>-->
+
+    <div class="galeria-header">
+      <p class="section-label">Portfólio</p>
+      <h2 class="section-title">Nossa <em>Galeria</em></h2>
     </div>
 
+    <!-- NOTEBOOK com vídeo YouTube + animação de abrir -->
+    <div class="galeria-notebook-wrap">
+      <div class="notebook" id="notebook">
+
+        <!-- Tampa (lid) — parte de cima que abre -->
+        <div class="notebook-lid" id="notebook-lid">
+          <div class="notebook-lid-inner">
+            <div class="notebook-camera"></div>
+            <div class="notebook-screen">
+            <iframe
+              id="notebook-iframe"
+              src="https://www.youtube.com/embed/2GHpe1REQEs?rel=0&modestbranding=1&color=white&enablejsapi=1"
+              title="IDE FILMS — Produção Ciclismo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+            </div>
+          </div>
+        </div><!-- /notebook-lid -->
+
+        <!-- Base (parte de baixo — sempre visível) -->
+        <div class="notebook-base-body">
+          <!-- teclado decorativo -->
+          <div class="notebook-keyboard">
+            <div class="notebook-key-row">
+              <span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="notebook-key-row">
+              <span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+            </div>
+            <div class="notebook-key-row notebook-key-row--space">
+              <span class="notebook-space"></span>
+            </div>
+          </div>
+          <div class="notebook-trackpad"></div>
+        </div>
+        <div class="notebook-foot"></div>
+
+      </div><!-- /notebook -->
+    </div>
+
+    <div class="galeria-video-caption">
+      <strong>Ciclismo — Produção IDE FILMS</strong>
+      <span>Documentário · 2024</span>
+    </div>
+
+    <!-- Divisor entre notebook e carrossel -->
+    <div class="galeria-divider">
+      <div class="galeria-divider-line"></div>
+      <span class="galeria-divider-label">Mais trabalhos</span>
+      <div class="galeria-divider-line"></div>
+    </div>
+
+    <!-- Carrossel de fotos/vídeos -->
     <div class="swiper swiper-galeria">
       <div class="swiper-wrapper">
 
-        <!-- Slide 1 — substitua o bg por <img src="assets/gal-1.jpg"> -->
-        <div class="swiper-slide galeria-slide" data-cat="social video">
+        <div class="swiper-slide galeria-slide" data-cat="social">
           <a href="https://www.instagram.com/idefilmss" target="_blank" rel="noopener">
-            <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1409,#0c0c0c)"></div>
-            <div class="play-icon">
-              <img src="assets/video1.png" alt="">            
-              
-            </div>
+            <img src="assets/video1.png" alt="Trabalho IDE FILMS">
             <div class="galeria-overlay">
-              <span>Casamento · Social</span>
+              <span>Social · 2024</span>
               <div class="galeria-ig-hint">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
                 Ver no Instagram
@@ -259,16 +259,11 @@
           </a>
         </div>
 
-        <!-- Slide 2 -->
-        <div class="swiper-slide galeria-slide" data-cat="social video">
+        <div class="swiper-slide galeria-slide" data-cat="social">
           <a href="https://www.instagram.com/idefilmss" target="_blank" rel="noopener">
-            <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1409,#0c0c0c)"></div>
-            <div class="play-icon">
-              <img src="assets/foto 3.png" alt="">            
-              
-            </div>
+            <img src="assets/foto 3.png" alt="Trabalho IDE FILMS">
             <div class="galeria-overlay">
-              <span>Casamento · Social</span>
+              <span>Retrato · 2024</span>
               <div class="galeria-ig-hint">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
                 Ver no Instagram
@@ -277,16 +272,11 @@
           </a>
         </div>
 
-        <!-- Slide 3 -->
-        <div class="swiper-slide galeria-slide" data-cat="social video">
+        <div class="swiper-slide galeria-slide" data-cat="social">
           <a href="https://www.instagram.com/idefilmss" target="_blank" rel="noopener">
-            <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1409,#0c0c0c)"></div>
-            <div class="play-icon">
-              <img src="assets/foto 2.png" alt="">            
-              
-            </div>
+            <img src="assets/foto 2.png" alt="Trabalho IDE FILMS">
             <div class="galeria-overlay">
-              <span>Casamento · Social</span>
+              <span>Evento · 2024</span>
               <div class="galeria-ig-hint">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
                 Ver no Instagram
@@ -295,27 +285,10 @@
           </a>
         </div>
 
-        <!-- Slide 4 -->
-        <div class="swiper-slide galeria-slide" data-cat="social video">
-          <a href="https://www.instagram.com/idefilmss" target="_blank" rel="noopener">
-            <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1409,#0c0c0c)"></div>
-            <div class="play-icon">
-              <img src="assets/neto.png" alt="">            
-              
-            </div>
-            <div class="galeria-overlay">
-              <span>Casamento · Social</span>
-              <div class="galeria-ig-hint">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
-                Ver no Instagram
-              </div>
-            </div>
-          </a>
-        </div>
-
+      </div>
     </div>
 
-    <div class="swiper-nav reveal">
+    <div class="swiper-nav">
       <button class="swiper-btn" id="prev-btn">
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
           <path d="M11 4L6 9l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -327,33 +300,32 @@
         </svg>
       </button>
     </div>
+
   </section>
 
   <!-- ══ CONTATO ════════════════════════════════════════════ -->
   <section id="contato">
     <div class="contato-info">
-      <p class="section-label reveal">Fale Conosco</p>
-      <h2 class="section-title reveal reveal-delay-1">Vamos criar<br><em>juntos.</em></h2>
-      <div class="divider reveal reveal-delay-2"></div>
-      <p class="contato-text reveal reveal-delay-2">
-        Conte-nos sobre seu evento. Respondemos em até 24 horas com uma proposta personalizada.
-      </p>
-      <div class="contato-detail reveal reveal-delay-3">
-        <div class="contato-item">
+      <p class="section-label gs-reveal">Fale Conosco</p>
+      <h2 class="section-title gs-reveal">Vamos criar<br><em>juntos.</em></h2>
+      <div class="divider gs-reveal"></div>
+      <p class="contato-text gs-reveal">Conte-nos sobre seu evento. Respondemos em até 24 horas com uma proposta personalizada.</p>
+      <div class="contato-detail">
+        <div class="contato-item gs-reveal">
           <div class="contato-item-icon">📍</div>
           <div class="contato-item-text">
             <strong>Localização</strong>
             <span>Maceió, Alagoas — AL</span>
           </div>
         </div>
-        <div class="contato-item">
+        <div class="contato-item gs-reveal">
           <div class="contato-item-icon">📱</div>
           <div class="contato-item-text">
             <strong>WhatsApp</strong>
             <span>(82) 9 0000-0000</span>
           </div>
         </div>
-        <div class="contato-item">
+        <div class="contato-item gs-reveal">
           <div class="contato-item-icon">📷</div>
           <div class="contato-item-text">
             <strong>Instagram</strong>
@@ -363,7 +335,7 @@
       </div>
     </div>
 
-    <div class="contato-form reveal reveal-delay-1">
+    <div class="contato-form gs-reveal-form">
       <div class="form-grid">
         <div class="form-row">
           <label>Nome</label>
@@ -405,15 +377,12 @@
 
   <!-- ══ FOOTER ════════════════════════════════════════════ -->
   <footer>
-    <div class="footer-logo">
-      <span>IDE FILMS</span>
-    </div>
+    <div class="footer-logo"><span>IDE FILMS</span></div>
     <p class="footer-copy">© 2025 IDE FILMS · Todos os direitos reservados</p>
     <div class="footer-socials">
-      <a href="https://instagram.com/idefilms" target="_blank" title="Instagram">
+      <a href="https://instagram.com/idefilmss" target="_blank" title="Instagram">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="2" y="2" width="20" height="20" rx="5"/>
-          <circle cx="12" cy="12" r="4"/>
+          <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/>
           <circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/>
         </svg>
       </a>
@@ -426,15 +395,17 @@
     </div>
   </footer>
 
-  <!-- ══ WHATSAPP FLUTUANTE ════════════════════════════════ -->
-  <a class="wa-float" href="https://wa.me/5582900000000" target="_blank" title="Falar no WhatsApp">
+  <!-- WhatsApp flutuante -->
+  <a class="wa-float" href="https://wa.me/5582900000000" target="_blank" title="WhatsApp">
     <svg viewBox="0 0 24 24">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
       <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.557 4.12 1.528 5.856L0 24l6.335-1.508A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.001-1.372l-.36-.213-3.76.895.938-3.652-.235-.374A9.786 9.786 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
     </svg>
   </a>
 
-  <!-- ══ SCRIPTS ════════════════════════════════════════════ -->
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/main.js"></script>
 
