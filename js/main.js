@@ -103,45 +103,22 @@ gsap.to('.galeria-header', {
 });
 
 /* ══════════════════════════════════════════════════════════
-   NOTEBOOK — aparece + tampa abre
+   NOTEBOOK MOCKUP — slide-up vindo de baixo + fade
 ══════════════════════════════════════════════════════════ */
-const notebookLid  = document.getElementById('notebook-lid');
 const notebookWrap = document.querySelector('.galeria-notebook-wrap');
+const notebookScreen = document.querySelector('.notebook-mockup-screen');
 
-if (notebookLid && notebookWrap) {
-  const nb = document.querySelector('.notebook');
-  if (nb) {
-    nb.style.perspective = '1200px';
-    nb.style.perspectiveOrigin = '50% 100%';
-  }
-
-  gsap.set(notebookLid, { rotateX: 90, transformOrigin: 'bottom center' });
-
-  /* Notebook inteiro: fade-in + slide-up */
-  gsap.fromTo(notebookWrap,
-    { opacity: 0, y: 80 },
-    {
-      opacity: 1,
-      y: 0,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: notebookWrap,
-        start: 'top 85%',
-        end: 'top 50%',
-        scrub: 1.2,
-      },
-    }
-  );
-
-  /* Tampa abre */
-  gsap.to(notebookLid, {
-    rotateX: 0,
-    ease: 'power2.out',
+if (notebookWrap) {
+  /* Notebook: fade-in + slide-up elegante */
+  gsap.to(notebookWrap, {
+    opacity: 1,
+    y: 0,
+    ease: 'power3.out',
     scrollTrigger: {
       trigger: notebookWrap,
-      start: 'top 60%',
-      end: 'top 10%',
-      scrub: 2,
+      start: 'top 90%',
+      end: 'top 45%',
+      scrub: 1.4,
     },
   });
 
@@ -169,6 +146,34 @@ if (notebookLid && notebookWrap) {
   });
 }
 
+/* Grid de fotos — itens entram em stagger */
+gsap.from('.galeria-item', {
+  opacity: 0,
+  y: 30,
+  scale: 0.95,
+  stagger: 0.08,
+  ease: 'power2.out',
+  scrollTrigger: {
+    trigger: '.galeria-grid',
+    start: 'top 85%',
+    end: 'top 40%',
+    scrub: 1,
+  },
+});
+
+/* Botão ver mais */
+gsap.to('.galeria-cta', {
+  opacity: 1,
+  y: 0,
+  ease: 'power2.out',
+  scrollTrigger: {
+    trigger: '.galeria-cta',
+    start: 'top 90%',
+    end: 'top 65%',
+    scrub: 1,
+  },
+});
+
 /* ══════════════════════════════════════════════════════════
    CONTATO
 ══════════════════════════════════════════════════════════ */
@@ -193,19 +198,4 @@ gsap.from('.gs-reveal-form', {
     end: 'top 20%',
     scrub: 1.2,
   },
-});
-
-/* ══════════════════════════════════════════════════════════
-   SWIPER
-══════════════════════════════════════════════════════════ */
-const swiper = new Swiper('.swiper-galeria', {
-  slidesPerView: 1.2,
-  spaceBetween: 16,
-  grabCursor: true,
-  breakpoints: {
-    600:  { slidesPerView: 1.6 },
-    900:  { slidesPerView: 2.2 },
-    1200: { slidesPerView: 2.8 },
-  },
-  navigation: { prevEl: '#prev-btn', nextEl: '#next-btn' },
 });
