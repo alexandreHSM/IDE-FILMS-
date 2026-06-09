@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
   <link rel="stylesheet" href="css/base.css"/>
   <link rel="stylesheet" href="css/nav.css"/>
@@ -186,53 +185,54 @@
       <h2 class="section-title">Nossa <em>Galeria</em></h2>
     </div>
 
-    <!-- NOTEBOOK com vídeo YouTube + animação de abrir -->
+    <!-- NOTEBOOK MOCKUP com imagem real + vídeo YouTube -->
     <div class="galeria-notebook-wrap">
-      <div class="notebook" id="notebook">
-
-        <!-- Tampa (lid) — parte de cima que abre -->
-        <div class="notebook-lid" id="notebook-lid">
-          <div class="notebook-lid-inner">
-            <div class="notebook-camera"></div>
-            <div class="notebook-screen">
-            <iframe
-              id="notebook-iframe"
-              src="https://www.youtube.com/embed/2GHpe1REQEs?rel=0&modestbranding=1&color=white&enablejsapi=1"
-              title="IDE FILMS — Produção Ciclismo"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-              referrerpolicy="strict-origin-when-cross-origin">
-            </iframe>
-            </div>
-          </div>
-        </div><!-- /notebook-lid -->
-
-        <!-- Base (parte de baixo — sempre visível) -->
-        <div class="notebook-base-body">
-          <!-- teclado decorativo -->
-          <div class="notebook-keyboard">
-            <div class="notebook-key-row">
-              <span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span>
-            </div>
-            <div class="notebook-key-row">
-              <span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span>
-            </div>
-            <div class="notebook-key-row notebook-key-row--space">
-              <span class="notebook-space"></span>
-            </div>
-          </div>
-          <div class="notebook-trackpad"></div>
+      <div class="notebook-mockup" id="notebook">
+        <img
+          class="notebook-mockup-img"
+          src="assets/notebook-mockup.png"
+          alt="Notebook IDE FILMS"
+        />
+        <div class="notebook-mockup-screen">
+          <iframe
+            id="notebook-iframe"
+            src="https://www.youtube.com/embed/2GHpe1REQEs?rel=0&modestbranding=1&color=white&enablejsapi=1"
+            title="IDE FILMS — Produção"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
         </div>
-        <div class="notebook-foot"></div>
+      </div>
+    </div>
 
-      </div><!-- /notebook -->
+    <!-- iPhone mockup — visível apenas no mobile -->
+    <div class="galeria-notebook-mobile">
+      <div class="iphone-mockup">
+        <!--
+          Coloque seu mockup de iPhone em assets/iphone-mockup.png
+          Use um mockup com tela branca/transparente de frente
+        -->
+        <img
+          class="iphone-mockup-img"
+          src="assets/iphone-mockup.png"
+          alt="iPhone IDE FILMS"
+        />
+        <div class="iphone-mockup-screen">
+          <iframe
+            src="https://www.youtube.com/embed/2GHpe1REQEs?rel=0&modestbranding=1&color=white"
+            title="IDE FILMS — Produção"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
+        </div>
+      </div>
     </div>
 
     <div class="galeria-video-caption">
-      <strong>Ciclismo — Produção IDE FILMS</strong>
-      <span>Documentário · 2024</span>
+      <strong>A Hora do Salvador - Silvano Marcos</strong>
+      <span>Clipe · 2026</span>
     </div>
 
     <!-- Divisor entre notebook e carrossel -->
@@ -242,63 +242,74 @@
       <div class="galeria-divider-line"></div>
     </div>
 
-    <!-- Carrossel de fotos/vídeos -->
-    <div class="swiper swiper-galeria">
-      <div class="swiper-wrapper">
+    <!-- Grid fixo de fotos — últimas postagens -->
+    <div class="galeria-grid">
 
-        <div class="swiper-slide galeria-slide" data-cat="social">
-          <a href="https://www.instagram.com/idefilmss" target="_blank" rel="noopener">
-            <img src="assets/video1.png" alt="Trabalho IDE FILMS">
-            <div class="galeria-overlay">
-              <span>Social · 2024</span>
-              <div class="galeria-ig-hint">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
-                Ver no Instagram
-              </div>
-            </div>
-          </a>
+      <a class="galeria-item" href="https://www.instagram.com/idefilmss" target="_blank" rel="noopener">
+        <img src="assets/foto 3.png" alt="IDE FILMS">
+        <div class="galeria-overlay">
+          <div class="galeria-ig-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+            Ver no Instagram
+          </div>
         </div>
+      </a>
 
-        <div class="swiper-slide galeria-slide" data-cat="social">
-          <a href="https://www.instagram.com/idefilmss" target="_blank" rel="noopener">
-            <img src="assets/foto 3.png" alt="Trabalho IDE FILMS">
-            <div class="galeria-overlay">
-              <span>Retrato · 2024</span>
-              <div class="galeria-ig-hint">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
-                Ver no Instagram
-              </div>
-            </div>
-          </a>
+      <a class="galeria-item" href="https://www.instagram.com/idefilmss" target="_blank" rel="noopener">
+        <img src="assets/foto 2.png" alt="IDE FILMS">
+        <div class="galeria-overlay">
+          <div class="galeria-ig-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+            Ver no Instagram
+          </div>
         </div>
+      </a>
 
-        <div class="swiper-slide galeria-slide" data-cat="social">
-          <a href="https://www.instagram.com/idefilmss" target="_blank" rel="noopener">
-            <img src="assets/foto 2.png" alt="Trabalho IDE FILMS">
-            <div class="galeria-overlay">
-              <span>Evento · 2024</span>
-              <div class="galeria-ig-hint">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
-                Ver no Instagram
-              </div>
-            </div>
-          </a>
+      <a class="galeria-item" href="https://www.instagram.com/idefilmss" target="_blank" rel="noopener">
+        <img src="assets/neto.png" alt="IDE FILMS">
+        <div class="galeria-overlay">
+          <div class="galeria-ig-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+            Ver no Instagram
+          </div>
         </div>
+      </a>
 
-      </div>
+      <a class="galeria-item" href="https://www.instagram.com/idefilmss" target="_blank" rel="noopener">
+        <img src="assets/foto 3.png" alt="IDE FILMS">
+        <div class="galeria-overlay">
+          <div class="galeria-ig-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+            Ver no Instagram
+          </div>
+        </div>
+      </a>
+
+      <a class="galeria-item" href="https://www.instagram.com/idefilmss" target="_blank" rel="noopener">
+        <img src="assets/foto 2.png" alt="IDE FILMS">
+        <div class="galeria-overlay">
+          <div class="galeria-ig-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+            Ver no Instagram
+          </div>
+        </div>
+      </a>
+
+      <a class="galeria-item" href="https://www.instagram.com/idefilmss" target="_blank" rel="noopener">
+        <img src="assets/neto.png" alt="IDE FILMS">
+        <div class="galeria-overlay">
+          <div class="galeria-ig-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+            Ver no Instagram
+          </div>
+        </div>
+      </a>
+
     </div>
 
-    <div class="swiper-nav">
-      <button class="swiper-btn" id="prev-btn">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-          <path d="M11 4L6 9l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="swiper-btn" id="next-btn">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-          <path d="M7 4l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
+    <!-- Botão ver mais -->
+    <div class="galeria-cta">
+      <a href="galeria.html" class="btn-gold">Ver toda a galeria</a>
     </div>
 
   </section>
@@ -406,7 +417,6 @@
   <!-- GSAP + ScrollTrigger -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/main.js"></script>
 
 </body>
