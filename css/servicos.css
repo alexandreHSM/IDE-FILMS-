@@ -119,12 +119,21 @@
 }
 
 @media (max-width: 900px) {
-  #servicos { padding: 5rem 1.5rem; }
-  .servicos-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-  .servico-card  { padding: 1.8rem 1.4rem; border-radius: 14px; }
-  .servico-name  { font-size: clamp(1.3rem, 4vw, 1.7rem); }
+  #servicos        { padding: 4rem 1.2rem; }
+  /* 2 colunas × 2 linhas — grid fixo no mobile */
+  .servicos-grid   { grid-template-columns: repeat(2, 1fr); gap: .75rem; }
+  .servico-card    { padding: 1.4rem 1.1rem; border-radius: 14px; }
+  .servico-icon    { font-size: 1.2rem; margin-bottom: .6rem; }
+  .servico-name    { font-size: clamp(1.1rem, 4vw, 1.4rem); margin-bottom: .5rem; }
+  .servico-desc    { font-size: .66rem; line-height: 1.6; margin-bottom: .8rem; }
+  .servico-skills-label { font-size: .52rem; margin-bottom: .4rem; }
+  .servico-tag     { font-size: .55rem; padding: .22rem .55rem; }
 }
 
-@media (max-width: 480px) {
-  .servicos-grid { grid-template-columns: 1fr; }
+/* Telas muito pequenas mantêm 2 colunas (não colapsa para 1) */
+@media (max-width: 400px) {
+  .servicos-grid   { grid-template-columns: repeat(2, 1fr); gap: .5rem; }
+  .servico-card    { padding: 1.1rem .8rem; }
+  .servico-name    { font-size: 1rem; }
+  .servico-desc    { font-size: .62rem; }
 }

@@ -1,121 +1,100 @@
 /* ═══════════════════════════════════════════════════════════
-   GALERIA.CSS — Portfólio com notebook YouTube + carrossel
+   GALERIA.CSS
    IDE FILMS
 ═══════════════════════════════════════════════════════════ */
 
 #galeria {
-  padding: var(--spacing-xl) 0;
+  padding: var(--spacing-lg) 0 var(--spacing-lg);
   background: var(--black);
 }
 
 /* ─── HEADER ────────────────────────────────────────────── */
 .galeria-header {
   padding: 0 var(--spacing-lg);
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
+  text-align: center;
   opacity: 0;
   transform: translateY(40px);
 }
 
-/* ─── NOTEBOOK YOUTUBE ──────────────────────────────────── */
+.galeria-header .divider {
+  margin: 1.5rem auto;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   NOTEBOOK MOCKUP — imagem real com iframe sobreposto
+═══════════════════════════════════════════════════════════ */
 .galeria-notebook-wrap {
-  padding: 0 var(--spacing-lg);
-  margin-bottom: 5rem;
+  padding: 0 var(--spacing-md);
+  margin-bottom: 1.2rem;
   display: flex;
   justify-content: center;
   opacity: 0;
-  transform: translateY(60px) scale(.97);
+  transform: translateY(60px);     /* GSAP: slide-up vindo de baixo */
 }
 
-.notebook {
+.notebook-mockup {
   position: relative;
   width: 100%;
-  max-width: 860px;
+  max-width: 1000px;               /* aumentado de 820 → 1000 */
 }
 
-/* Corpo do notebook */
-.notebook-body {
-  background: linear-gradient(160deg, #2a2a2a 0%, #1a1a1a 100%);
-  border-radius: 16px 16px 0 0;
-  padding: 20px 24px 14px;
-  border: 1.5px solid #3a3a3a;
-  box-shadow:
-    0 0 0 1px #111,
-    0 30px 80px rgba(0,0,0,.8),
-    0 0 60px rgba(221,185,94,.05);
+/* Glow dourado atrás */
+.notebook-mockup::before {
+  content: '';
+  position: absolute;
+  inset: 5%;
+  background: radial-gradient(ellipse, rgba(221,185,94,.1) 0%, transparent 70%);
+  filter: blur(50px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Imagem do mockup */
+.notebook-mockup-img {
+  width: 100%;
+  height: auto;
+  display: block;
   position: relative;
+  z-index: 1;
+  /* sombra suave */
+  filter: drop-shadow(0 30px 60px rgba(0,0,0,.6));
 }
 
-/* Câmera do notebook */
-.notebook-camera {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: #333;
-  border: 1px solid #444;
-  margin: 0 auto 10px;
-}
-
-/* Tela */
-.notebook-screen {
-  background: #000;
-  border-radius: 6px;
+/*
+  Tela do mockup (medida pelos pixels da imagem):
+  top:   25.6% da altura total
+  left:  11.7% da largura total
+  width: 76.5%
+  height: 48.8%
+*/
+.notebook-mockup-screen {
+  position: absolute;
+  z-index: 2;
+  /* Medidas calibradas pixel a pixel do mockup real:
+     moldura escura: top=27%, bottom=59%, left=21%, right=79% */
+  top: 5%;
+  left: 15.2%;
+  width: 71.6%;    /* 79% - 21.2% = 57.8% */
+  height: 61.1%;   /* 59% - 27.5% = 31.5% */
   overflow: hidden;
-  aspect-ratio: 16 / 9.4;
-  position: relative;
-  border: 1.5px solid #111;
+  background: #000;
+  transform-origin: top center;
 }
 
-.notebook-screen iframe {
-  width: 100%; height: 100%;
+.notebook-mockup-screen iframe {
+  width: 100%;
+  height: 100%;
   display: block;
   border: none;
-}
-
-/* Barra inferior (base do notebook) */
-.notebook-base {
-  background: linear-gradient(to bottom, #252525, #1c1c1c);
-  height: 18px;
-  border-radius: 0 0 8px 8px;
-  border: 1.5px solid #333;
-  border-top: none;
-  position: relative;
-}
-
-/* Detalhe da dobradiça */
-.notebook-base::before {
-  content: '';
-  position: absolute;
-  top: 4px; left: 50%;
-  transform: translateX(-50%);
-  width: 60px; height: 4px;
-  border-radius: 2px;
-  background: #333;
-}
-
-/* Pé do notebook */
-.notebook-foot {
-  background: linear-gradient(to bottom, #1c1c1c, #141414);
-  height: 10px;
-  border-radius: 0 0 20px 20px;
-  border: 1.5px solid #2a2a2a;
-  border-top: none;
-  width: 94%;
-  margin: 0 auto;
-}
-
-/* Glow dourado atrás do notebook */
-.notebook::before {
-  content: '';
-  position: absolute;
-  inset: 10% 5%;
-  background: radial-gradient(ellipse, rgba(221,185,94,.07) 0%, transparent 70%);
-  filter: blur(40px);
-  z-index: -1;
 }
 
 /* ─── LEGENDA DO VÍDEO ──────────────────────────────────── */
 .galeria-video-caption {
   text-align: center;
-  margin-top: 1.5rem;
+  margin-top: .75rem;
+  margin-bottom: 1.5rem;
+  padding: 0 var(--spacing-lg);
   opacity: 0;
   transform: translateY(16px);
 }
@@ -142,7 +121,7 @@
   align-items: center;
   gap: 1.5rem;
   padding: 0 var(--spacing-lg);
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   opacity: 0;
 }
 
@@ -160,34 +139,35 @@
   white-space: nowrap;
 }
 
-/* ─── CARROSSEL ─────────────────────────────────────────── */
-.swiper-galeria {
-  padding: 0 var(--spacing-lg) 3rem !important;
-  overflow: visible !important;
+/* ═══════════════════════════════════════════════════════════
+   GRID FIXO DE FOTOS
+═══════════════════════════════════════════════════════════ */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  padding: 0 var(--spacing-lg);
+  margin-bottom: 3rem;
 }
 
-.swiper-galeria .swiper-wrapper { overflow: visible; }
-
-/* ─── SLIDE ─────────────────────────────────────────────── */
-.galeria-slide {
-  border-radius: 8px;
-  overflow: hidden;
+.galeria-item {
   position: relative;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 1 / 1;   /* quadrado */
+  overflow: hidden;
   background: #141414;
-  cursor: pointer;
-}
-
-.galeria-slide img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  filter: brightness(.85);
-  transition: transform .6s var(--ease), filter .6s;
   display: block;
 }
 
-.galeria-slide:hover img {
-  transform: scale(1.04);
+.galeria-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(.85);
+  transition: transform .6s var(--ease), filter .5s;
+}
+
+.galeria-item:hover img {
+  transform: scale(1.06);
   filter: brightness(1);
 }
 
@@ -195,25 +175,15 @@
 .galeria-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(12,12,12,.85) 0%, transparent 55%);
+  background: linear-gradient(to top, rgba(12,12,12,.8) 0%, transparent 50%);
   opacity: 0;
   transition: opacity .4s;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  gap: .4rem;
-  padding: 1.5rem;
+  align-items: flex-end;
+  padding: 1rem;
 }
 
-.galeria-slide:hover .galeria-overlay { opacity: 1; }
-
-.galeria-overlay span {
-  font-size: .65rem;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-  color: var(--gold);
-}
+.galeria-item:hover .galeria-overlay { opacity: 1; }
 
 .galeria-ig-hint {
   display: flex;
@@ -222,170 +192,78 @@
   font-size: .6rem;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: rgba(204,204,204,.5);
-  transition: color .3s;
+  color: rgba(255,255,255,.7);
 }
 
-.galeria-slide:hover .galeria-ig-hint { color: var(--snow); }
-
-/* ─── NAV BUTTONS ───────────────────────────────────────── */
-.swiper-nav {
+/* ─── BOTÃO VER MAIS ────────────────────────────────────── */
+.galeria-cta {
   display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
-  padding: 0 var(--spacing-lg);
-}
-
-.swiper-btn {
-  width: 44px; height: 44px;
-  border: 1px solid rgba(221,185,94,.3);
-  background: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  color: var(--gold);
-  transition: background .3s, border-color .3s, color .3s;
-}
-
-.swiper-btn:hover {
-  background: var(--gold);
-  color: var(--black);
-  border-color: var(--gold);
+  padding: 0 var(--spacing-lg);
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 /* ─── RESPONSIVE ────────────────────────────────────────── */
 @media (max-width: 900px) {
   .galeria-header,
-  .galeria-notebook-wrap,
+  .galeria-video-caption,
   .galeria-divider,
-  .swiper-galeria,
-  .swiper-nav { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .galeria-grid,
+  .galeria-cta { padding-left: 1.5rem; padding-right: 1.5rem; }
+
+  /* Mobile: notebook em tela cheia com padding menor */
+  .galeria-notebook-wrap {
+    padding: 0 1rem;
+    display: flex;
+  }
+
+  /* iPhone mockup — escondido (usamos notebook no mobile também) */
+  .galeria-notebook-mobile { display: none !important; }
+
+  .galeria-grid { grid-template-columns: repeat(3, 1fr); gap: 3px; }
 }
 
-/* ─── NOTEBOOK REDESIGN com tampa animada ───────────────── */
+@media (max-width: 480px) {
+  .galeria-grid { grid-template-columns: repeat(2, 1fr); }
+  .galeria-notebook-wrap { padding: 0 .5rem; }
+}
 
-/* Remove estilos antigos do notebook-body */
-.notebook-body { all: unset; display: block; }
+/* ─── IPHONE MOCKUP (mobile only) ──────────────────────── */
+.galeria-notebook-mobile {
+  display: none; /* escondido no desktop */
+  justify-content: center;
+  padding: 0 var(--spacing-lg);
+  margin-bottom: 3rem;
+}
 
-/* Tampa (lid) — rota de cima para baixo no open */
-.notebook-lid {
+.iphone-mockup {
   position: relative;
-  background: linear-gradient(160deg, #2e2e2e 0%, #1a1a1a 100%);
-  border-radius: 14px 14px 2px 2px;
-  padding: 16px 20px 12px;
-  border: 1.5px solid #3a3a3a;
-  border-bottom: none;
-  box-shadow: 0 -4px 20px rgba(0,0,0,.4);
-
-  /* Ponto de rotação: parte de baixo da tampa */
-  transform-origin: bottom center;
-
-  /* Estado inicial: fechado (90° = deitado, vemos só a borda) */
-  /* GSAP vai animar de rotateX(90deg) para rotateX(0deg)       */
-  transform: perspective(1200px) rotateX(90deg);
-  backface-visibility: hidden;
+  width: 240px;
 }
 
-/* Interior da tampa */
-.notebook-lid-inner {
-  position: relative;
-}
-
-/* Câmera */
-.notebook-camera {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: #2a2a2a;
-  border: 1px solid #444;
-  margin: 0 auto 10px;
-}
-
-/* Tela */
-.notebook-screen {
-  background: #000;
-  border-radius: 6px;
-  overflow: hidden;
-  aspect-ratio: 16 / 9.4;
-  position: relative;
-  border: 1.5px solid #111;
-}
-
-.notebook-screen iframe {
-  width: 100%; height: 100%;
+.iphone-mockup-img {
+  width: 100%;
+  height: auto;
   display: block;
-  border: none;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,.6));
 }
 
-/* Base do notebook (sempre visível) */
-.notebook-base-body {
-  background: linear-gradient(to bottom, #272727, #1e1e1e);
-  border-radius: 0 0 10px 10px;
-  border: 1.5px solid #333;
-  border-top: 1px solid #444;
-  padding: 14px 20px 10px;
-  box-shadow: 0 20px 60px rgba(0,0,0,.7);
-}
-
-/* Teclado decorativo */
-.notebook-keyboard {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  margin-bottom: 10px;
-}
-
-.notebook-key-row {
-  display: flex;
-  gap: 4px;
-}
-
-.notebook-key-row span {
-  flex: 1;
-  height: 8px;
-  background: #2a2a2a;
-  border-radius: 2px;
-  border: 1px solid #333;
-}
-
-.notebook-key-row--space { justify-content: center; }
-
-.notebook-space {
-  flex: 0 0 40% !important;
-  height: 8px;
-  background: #2a2a2a;
-  border-radius: 2px;
-  border: 1px solid #333;
-}
-
-/* Trackpad */
-.notebook-trackpad {
-  width: 30%;
-  height: 28px;
-  background: #252525;
-  border-radius: 6px;
-  border: 1px solid #333;
-  margin: 0 auto;
-}
-
-/* Pé */
-.notebook-foot {
-  background: linear-gradient(to bottom, #1c1c1c, #141414);
-  height: 10px;
-  border-radius: 0 0 20px 20px;
-  border: 1.5px solid #2a2a2a;
-  border-top: none;
-  width: 94%;
-  margin: 0 auto;
-}
-
-/* Glow dourado atrás */
-.notebook::before {
-  content: '';
+.iphone-mockup-screen {
   position: absolute;
-  inset: 5% 5%;
-  background: radial-gradient(ellipse, rgba(221,185,94,.09) 0%, transparent 70%);
-  filter: blur(50px);
-  z-index: -1;
-  pointer-events: none;
+  /* ajuste conforme o mockup de iPhone que você usar */
+  top: 14%;
+  left: 6.5%;
+  width: 87%;
+  height: 72%;
+  overflow: hidden;
+  background: #000;
+  border-radius: 4px;
+}
+
+.iphone-mockup-screen iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
 }
