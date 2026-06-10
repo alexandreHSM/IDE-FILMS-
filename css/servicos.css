@@ -31,10 +31,10 @@
   border-radius: 20px;
   overflow: hidden;
   cursor: default;
-  background: linear-gradient(135deg, var(--snow) 0%, var(--gold-dk) 40%, var(--gold) 100%);
+  background: var(--snow);
   border: 1px solid rgba(255,255,255,.06);
   box-shadow: 0 8px 40px rgba(0,0,0,.5);
-  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease), background .4s;
 
   /* GSAP: começa invisível */
   opacity: 0;
@@ -46,12 +46,12 @@
   position: absolute;
   bottom: 0; left: 10%; right: 10%;
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(255,255,255,.5), transparent);
+  background: linear-gradient(to right, transparent, var(--gold-dk), transparent);
   transform: scaleX(0);
   transition: transform .45s var(--ease);
 }
 
-.servico-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,.6); }
+.servico-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,.6); background: var(--white); }
 .servico-card:hover::after { transform: scaleX(1); }
 
 /* ─── ÍCONE ─────────────────────────────────────────────── */
@@ -66,7 +66,7 @@
   font-family: var(--ff-display);
   font-size: clamp(1.6rem, 2vw, 2.2rem);
   font-weight: 700;
-  color: #fff;
+  color: var(--gold-dk);
   line-height: 1.1;
   margin-bottom: .8rem;
 }
