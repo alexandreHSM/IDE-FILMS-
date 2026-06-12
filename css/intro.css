@@ -1,0 +1,84 @@
+/* ═══════════════════════════════════════════════════════════
+   INTRO.CSS — Cortina de abertura IDE FILMS
+═══════════════════════════════════════════════════════════ */
+
+#intro-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  pointer-events: all;
+}
+
+/* Metade esquerda e direita */
+.curtain-half {
+  width: 50%;
+  height: 100%;
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Linha diagonal decorativa em cada metade */
+.curtain-half::after {
+  content: '';
+  position: absolute;
+  width: 1px;
+  height: 200%;
+  background: linear-gradient(to bottom, transparent, rgba(221,185,94,.15), transparent);
+  transform: rotate(20deg);
+  pointer-events: none;
+}
+
+.curtain-left::after  { right: 30%; }
+.curtain-right::after { left: 30%; }
+
+/* Logo centralizada — fica entre as duas metades */
+.curtain-logo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.curtain-logo svg {
+  width: 64px;
+  height: 64px;
+  filter: drop-shadow(0 0 20px rgba(221,185,94,.4));
+}
+
+.curtain-logo-name {
+  font-family: var(--ff-display);
+  font-size: 2.8rem;
+  font-weight: 300;
+  letter-spacing: .4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  filter: drop-shadow(0 0 30px rgba(221,185,94,.3));
+}
+
+.curtain-logo-tagline {
+  font-size: .6rem;
+  letter-spacing: .5em;
+  text-transform: uppercase;
+  color: rgba(221,185,94,.5);
+  margin-top: -.5rem;
+}
+
+/* Linha dourada horizontal que aparece sob o nome */
+.curtain-line {
+  width: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin-top: .2rem;
+}
