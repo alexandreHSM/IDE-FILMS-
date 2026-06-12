@@ -11,6 +11,7 @@
 
 
   <link rel="stylesheet" href="css/base.css"/>
+  <link rel="stylesheet" href="css/intro.css"/>
   <link rel="stylesheet" href="css/nav.css"/>
   <link rel="stylesheet" href="css/hero.css"/>
   <link rel="stylesheet" href="css/sobre.css"/>
@@ -20,6 +21,24 @@
   <link rel="stylesheet" href="css/footer.css"/>
 </head>
 <body>
+
+  <!-- ══ INTRO CURTAIN ═════════════════════════════════════ -->
+  <div id="intro-curtain">
+    <div class="curtain-half curtain-left"></div>
+    <div class="curtain-half curtain-right"></div>
+  </div>
+  <div class="curtain-logo" id="curtain-logo">
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="4" y="10" width="28" height="20" rx="3" stroke="#DDB95E" stroke-width="1.5"/>
+      <circle cx="18" cy="20" r="5.5" stroke="#DDB95E" stroke-width="1.5"/>
+      <circle cx="18" cy="20" r="2.5" fill="#DDB95E"/>
+      <rect x="28" y="14" width="8" height="3" rx="1" fill="#DDB95E" opacity=".6"/>
+      <rect x="6" y="13" width="6" height="4" rx="1" stroke="#DDB95E" stroke-width="1" opacity=".5"/>
+    </svg>
+    <span class="curtain-logo-name">IDE FILMS</span>
+    <span class="curtain-logo-tagline">Produções Cinematográficas</span>
+    <div class="curtain-line" id="curtain-line"></div>
+  </div>
 
   <!-- ══ NAV ══════════════════════════════════════════════ -->
   <nav id="navbar">
@@ -46,6 +65,7 @@
 
   <!-- ══ HERO ═════════════════════════════════════════════ -->
   <section id="hero">
+    <canvas id="hero-canvas"></canvas>
     <div class="hero-left">
       <p class="hero-eyebrow" id="hero-eyebrow">Produções Cinematográficas</p>
       <h1 class="hero-title" id="hero-title">IDE<br><em>FILMS</em></h1>
@@ -54,13 +74,14 @@
         eventos corporativos, cada imagem é construída para durar.
       </p>
       <p class="hero-tagline" id="hero-tagline">Documentários · Eventos · Casamentos</p>
-      <a href="#contato" class="btn-gold" id="hero-cta">Solicitar Orçamento</a>
+      <!--<a href="#contato" class="btn-gold" id="hero-cta">Solicitar Orçamento</a>-->
     </div>
     <div class="hero-right">
       <div class="hero-mockup-wrap">
         <img class="hero-mockup-img" src="assets/MOCKUP CELL.png" alt="IDE FILMS — mockup Instagram"/>
       </div>
     </div>
+    
   </section>
 
   <!-- ══ SOBRE — sticky slide-over-hero ══════════════════════ -->
@@ -245,37 +266,7 @@
     <!-- Grid fixo de fotos — últimas postagens -->
     <div class="galeria-grid">
 
-      <a class="galeria-item" href="https://instagram.com/idefilmss" target="_blank" rel="noopener">
-        <img src="assets/foto3.png" alt="IDE FILMS">
-        <div class="galeria-overlay">
-          <div class="galeria-ig-hint">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
-            Ver no Instagram
-          </div>
-        </div>
-      </a>
-
-      <a class="galeria-item" href="https://instagram.com/idefilmss" target="_blank" rel="noopener">
-        <img src="assets/foto 4.png" alt="IDE FILMS">
-        <div class="galeria-overlay">
-          <div class="galeria-ig-hint">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
-            Ver no Instagram
-          </div>
-        </div>
-      </a>
-
-      <a class="galeria-item" href="https://instagram.com/idefilmss" target="_blank" rel="noopener">
-        <img src="assets/foto 5.png" alt="IDE FILMS">
-        <div class="galeria-overlay">
-          <div class="galeria-ig-hint">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
-            Ver no Instagram
-          </div>
-        </div>
-      </a>
-
-      <a class="galeria-item" href="https://instagram.com/idefilmss" target="_blank" rel="noopener">
+      <a class="galeria-item" href="https://www.instagram.com/idefilmss" target="_blank" rel="noopener">
         <img src="assets/foto 3.png" alt="IDE FILMS">
         <div class="galeria-overlay">
           <div class="galeria-ig-hint">
@@ -285,7 +276,7 @@
         </div>
       </a>
 
-      <a class="galeria-item" href="https://instagram.com/idefilmss" target="_blank" rel="noopener">
+      <a class="galeria-item" href="https://www.instagram.com/idefilmss" target="_blank" rel="noopener">
         <img src="assets/foto 2.png" alt="IDE FILMS">
         <div class="galeria-overlay">
           <div class="galeria-ig-hint">
@@ -295,7 +286,37 @@
         </div>
       </a>
 
-      <a class="galeria-item" href="https://instagram.com/idefilmss" target="_blank" rel="noopener">
+      <a class="galeria-item" href="https://www.instagram.com/idefilmss" target="_blank" rel="noopener">
+        <img src="assets/neto.png" alt="IDE FILMS">
+        <div class="galeria-overlay">
+          <div class="galeria-ig-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+            Ver no Instagram
+          </div>
+        </div>
+      </a>
+
+      <a class="galeria-item" href="https://www.instagram.com/idefilmss" target="_blank" rel="noopener">
+        <img src="assets/foto 3.png" alt="IDE FILMS">
+        <div class="galeria-overlay">
+          <div class="galeria-ig-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+            Ver no Instagram
+          </div>
+        </div>
+      </a>
+
+      <a class="galeria-item" href="https://www.instagram.com/idefilmss" target="_blank" rel="noopener">
+        <img src="assets/foto 2.png" alt="IDE FILMS">
+        <div class="galeria-overlay">
+          <div class="galeria-ig-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+            Ver no Instagram
+          </div>
+        </div>
+      </a>
+
+      <a class="galeria-item" href="https://www.instagram.com/idefilmss" target="_blank" rel="noopener">
         <img src="assets/neto.png" alt="IDE FILMS">
         <div class="galeria-overlay">
           <div class="galeria-ig-hint">
@@ -309,7 +330,7 @@
 
     <!-- Botão ver mais -->
     <div class="galeria-cta">
-      <a href="https://instagram.com/idefilmss" class="btn-gold">Ver toda a galeria</a>
+      <a href="galeria.html" class="btn-gold">Ver toda a galeria</a>
     </div>
 
   </section>
@@ -321,11 +342,11 @@
       <h2 class="section-title gs-reveal">Vamos criar<br><em>juntos.</em></h2>
       <div class="divider gs-reveal"></div>
       <p class="contato-text gs-reveal">Conte-nos sobre seu evento. Respondemos em até 24 horas com uma proposta personalizada.</p>
-      
+
     </div>
 
     <div class="contato-form gs-reveal-form">
-      <div class="contato-detail">
+            <div class="contato-detail">
         <div class="contato-item gs-reveal">
           <div class="contato-item-icon">📍</div>
           <div class="contato-item-text">
